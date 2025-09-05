@@ -31,8 +31,6 @@
     const segmentLength = 2;
     let currentLength = 0;
     const maxLength = 100000; // total path length to draw before stopping
-    let randomnumber = Math.floor(Math.random() * 10) + 1;
-      
     // Angles to create a yarn-like, curved path
     let angle = 0;
 
@@ -48,6 +46,8 @@
     ctx.lineCap = "round";
 
     function drawSegment() {
+      let randomnumber = Math.floor(Math.random() * 10) + 1;
+      
       if (currentLength > maxLength) {
         // Stop drawing
         return;
