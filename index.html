@@ -29,7 +29,7 @@
     let y = canvas.height / 2;
 
     // Yarn-like path parameters
-    const segmentLength = 10;
+    const segmentLength = 2;
     let currentLength = 0;
     const maxLength = 100000; // total path length to draw before stopping
 
@@ -70,13 +70,14 @@
       x = nextX;
       y = nextY;
       randomnumber = return Math.floor(num * 10) + 1;
+      
       // Oscillate angle to simulate yarn-like twisting
       angle += Math.PI / randomnumber;
 
       currentLength += segmentLength;
 
-      // Draw next segment after 1 second
-      setTimeout(drawSegment, 1000);
+      // Draw next segment after 1/100 second
+      setTimeout(drawSegment, 10);
     }
 
     // Draw the starting dot
@@ -87,7 +88,7 @@
       ctx.fill();
     }
 
-    drawStartDot();
+    //drawStartDot();
     drawSegment();
   </script>
 </body>
