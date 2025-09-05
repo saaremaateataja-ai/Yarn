@@ -41,6 +41,7 @@
     // Colorful pencil colors
     const colors = ["#e74c3c", "#f39c12", "#2ecc71", "#3498db", "#9b59b6", "#e84393"];
     let colorIndex = 0;
+    let nextColor = 0.1;
 
     ctx.lineWidth = 5;
     ctx.lineCap = "round";
@@ -58,7 +59,8 @@
       points.push({ x: nextX, y: nextY });
 
       ctx.strokeStyle = colors[colorIndex % colors.length];
-      colorIndex++;
+      nextColor = nextColor +0.1;
+      colorIndex = Math.floor(nextColor);
 
       ctx.beginPath();
       ctx.moveTo(points[points.length - 2].x, points[points.length - 2].y);
