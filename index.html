@@ -31,7 +31,8 @@
     const segmentLength = 2;
     let currentLength = 0;
     const maxLength = 100000; // total path length to draw before stopping
-
+    let randomnumber = Math.floor(Math.random() * 10) + 1;
+      
     // Angles to create a yarn-like, curved path
     let angle = 0;
 
@@ -43,7 +44,7 @@
     let colorIndex = 0;
     let nextColor = 0.1;
 
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 10;
     ctx.lineCap = "round";
 
     function drawSegment() {
@@ -59,7 +60,7 @@
       points.push({ x: nextX, y: nextY });
 
       ctx.strokeStyle = colors[colorIndex % colors.length];
-      nextColor = nextColor +0.1;
+      nextColor = nextColor +randomnumber/100;
       colorIndex = Math.floor(nextColor);
 
       ctx.beginPath();
@@ -70,8 +71,7 @@
       // Update position for next segment
       x = nextX;
       y = nextY;
-      let randomnumber = Math.floor(Math.random() * 30) + 1;
-      
+
       // Oscillate angle to simulate yarn-like twisting
       angle += Math.PI / 6;
       angle -= Math.PI / randomnumber;
