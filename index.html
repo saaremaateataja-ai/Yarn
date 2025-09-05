@@ -17,7 +17,7 @@
     }
   </style>
 </head>
-<body>  <canvas id="canvas" width="800" height="1660"></canvas>
+<body>  <canvas id="canvas" width="800" height="1630"></canvas>
   <script>
    
     const canvas = document.getElementById("canvas");
@@ -68,7 +68,7 @@
       // Update position for next segment
       x = nextX;
       y = nextY;
-      let randomnumber = Math.floor(num * 15) + 1;
+      let randomnumber = Math.floor(Math.random() * 15) + 1;
       
       // Oscillate angle to simulate yarn-like twisting
       angle += Math.PI / randomnumber;
