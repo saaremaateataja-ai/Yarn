@@ -12,17 +12,15 @@
     #canvas {
       display: block;
       margin: 20px auto;
-      border: 1px solid black;
+      border: 1px solid gray;
       background: #f9f9f9;
     }
   </style>
 </head>
 <body>
-  <canvas id="canvas" width="200" height="400"></canvas>
+  <canvas id="canvas" </canvas>
   <script>
-    // Show window size alert
-    alert("Window size: 200x400");
-
+   
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -33,7 +31,7 @@
     // Yarn-like path parameters
     const segmentLength = 10;
     let currentLength = 0;
-    const maxLength = 300; // total path length to draw before stopping
+    const maxLength = 100000; // total path length to draw before stopping
 
     // Angles to create a yarn-like, curved path
     let angle = 0;
@@ -45,7 +43,7 @@
     const colors = ["#e74c3c", "#f39c12", "#2ecc71", "#3498db", "#9b59b6", "#e84393"];
     let colorIndex = 0;
 
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2;
     ctx.lineCap = "round";
 
     function drawSegment() {
@@ -71,9 +69,9 @@
       // Update position for next segment
       x = nextX;
       y = nextY;
-
+      randomnumber = return Math.floor(num * 10) + 1;
       // Oscillate angle to simulate yarn-like twisting
-      angle += Math.PI / 6;
+      angle += Math.PI / randomnumber;
 
       currentLength += segmentLength;
 
@@ -83,9 +81,9 @@
 
     // Draw the starting dot
     function drawStartDot() {
-      ctx.fillStyle = "#000";
+      ctx.fillStyle = "#111666";
       ctx.beginPath();
-      ctx.arc(x, y, 5, 0, Math.PI * 2);
+      ctx.arc(x, y, 1, 0, Math.PI * 2);
       ctx.fill();
     }
 
